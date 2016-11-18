@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ball : MonoBehaviour {
+public class Ball : MonoBehaviour {
 
     public float launchSpeed = 600f;
 
