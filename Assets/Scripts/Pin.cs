@@ -11,7 +11,6 @@ public class Pin : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    print(name + " " +IsStanding());
 	}
 
     public bool IsStanding() {
