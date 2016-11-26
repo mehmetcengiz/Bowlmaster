@@ -6,7 +6,6 @@ public class PinSetter : MonoBehaviour {
 
     public int lastStandingCount = -1;
     public Text standingDisplay;
-    public float distanceToRaise = 40f;
 
 
     private Ball ball;
@@ -28,19 +27,15 @@ public class PinSetter : MonoBehaviour {
 	}
 
     public void RaisePins() {
-        foreach (Pin pin in GameObject.FindObjectsOfType<Pin>())
-        {
-            if (pin.IsStanding())
-            {
-                Debug.Log("a pin standing.");
-                pin.transform.Translate(new Vector3(0, distanceToRaise, 0));
-            }
+        foreach (Pin pin in GameObject.FindObjectsOfType<Pin>()){
+            pin.RaiseIfStanding();
         }
     }
 
     public void LowerPins() {
-        //lower standing pins only by distanceToRaise.
-        Debug.Log("Lower Pins");
+        foreach (Pin pin in GameObject.FindObjectsOfType<Pin>()){
+            pin.LowerIfStanding();
+        }
     }
 
     public void RenewPins() {
