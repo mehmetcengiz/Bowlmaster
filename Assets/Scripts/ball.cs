@@ -28,7 +28,6 @@ public class Ball : MonoBehaviour {
     }
 
     public void Reset() {
-        Debug.Log("Reseting ball");
         inPlay = false;
         transform.position = ballStartPos;
         rigidbody.velocity = Vector3.zero;

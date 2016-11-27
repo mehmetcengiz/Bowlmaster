@@ -22,13 +22,13 @@ public class ActionMaster : MonoBehaviour {
         if(bowl >= 19 && pins==10) {
             bowl++;
             return Action.Reset;
-        }if(bowl == 20 ){
+        }else if(bowl == 20 ){
             bowl++;
             if(bowls[19-1] == 10 && bowls [20-1] != 10){ return Action.Tidy;}
             if (((bowls[19 - 1] + bowls[20 - 1]) % 10) == 0){return Action.Reset;}
             return Bowl21Awarded() ? Action.Tidy : Action.EndGame;
         }
-        if (bowl % 2 != 0){ // Frist bowl of frame
+        else if (bowl % 2 != 0){ // Frist bowl of frame
             if(pins == 10) {
                 bowl += 2;
                 return Action.EndTurn;
@@ -36,7 +36,7 @@ public class ActionMaster : MonoBehaviour {
             bowl += 1;
             return Action.Tidy;
         }
-        if(bowl %2 == 0) { //Second bowl of frame
+        else if(bowl %2 == 0) { //Second bowl of frame
             bowl += 1;
             return Action.EndTurn;
         }
