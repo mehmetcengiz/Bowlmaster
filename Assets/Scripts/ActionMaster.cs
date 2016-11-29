@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class ActionMaster : MonoBehaviour {
+public class ActionMaster {
 
     public enum Action {Tidy,Reset,EndTurn,EndGame };
 
@@ -20,7 +20,7 @@ public class ActionMaster : MonoBehaviour {
         return currentAction;
     }
 
-    public Action Bowl(int pins){//TODO Make private
+    private Action Bowl(int pins){
 
         if(pins<0 || pins > 10){ throw new UnityException("Invalid pins.");}
 
