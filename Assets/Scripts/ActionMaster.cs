@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ActionMaster : MonoBehaviour {
 
@@ -8,7 +9,18 @@ public class ActionMaster : MonoBehaviour {
     private int[] bowls = new int[21];
     private int bowl = 1;
 
-    public Action Bowl(int pins){
+    public static Action NextAction(List<int> pinFalls) {
+        ActionMaster actionMaster = new ActionMaster();
+        Action currentAction = new Action();
+
+        foreach (int pinFall in pinFalls) {
+            currentAction = actionMaster.Bowl(pinFall);
+        }
+
+        return currentAction;
+    }
+
+    public Action Bowl(int pins){//TODO Make private
 
         if(pins<0 || pins > 10){ throw new UnityException("Invalid pins.");}
 
