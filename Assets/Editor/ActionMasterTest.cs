@@ -6,7 +6,8 @@
 //using System.Linq;
 
 //[TestFixture]
-//public class ActionMasterTest {
+//public class ActionMasterTest
+//{
 
 //    private List<int> pinFalls;
 //    private ActionMaster.Action endTurn = ActionMaster.Action.EndTurn;
@@ -16,12 +17,14 @@
 
 
 //    [SetUp]
-//    public void Setup(){
+//    public void Setup()
+//    {
 //        pinFalls = new List<int>();
 //    }
 
 //    [Test]
-//    public void T00PassingTest(){
+//    public void T00PassingTest()
+//    {
 //        Assert.AreEqual(1, 1);
 //    }
 
@@ -57,28 +60,28 @@
 //    [Test]
 //    public void T05CheckResetAtStrikeInLastFrame()
 //    {
-//        int[] rolls = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,1,9 };
+//        int[] rolls = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9 };
 //        Assert.AreEqual(reset, ActionMaster.NextAction(rolls.ToList()));
 //    }
 
 //    [Test]
 //    public void T06YouTubeRollsEndInEndGame()
 //    {
-//        int[] rolls = { 8, 2, 7, 3, 3, 4, 10, 2, 8, 10, 10, 8, 0, 10, 8, 2,9 };
+//        int[] rolls = { 8, 2, 7, 3, 3, 4, 10, 2, 8, 10, 10, 8, 0, 10, 8, 2, 9 };
 //        Assert.AreEqual(endGame, ActionMaster.NextAction(rolls.ToList()));
 //    }
 
 //    [Test]
 //    public void T07GameEndsAtBow20()
 //    {
-//        int[] rolls = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1};
+//        int[] rolls = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
 //        Assert.AreEqual(endGame, ActionMaster.NextAction(rolls.ToList()));
 //    }
 
 //    [Test]
 //    public void T08StrikeOn19thFrame()
 //    {
-//        int[] rolls = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10 ,5};
+//        int[] rolls = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10, 5 };
 //        Assert.AreEqual(tidy, ActionMaster.NextAction(rolls.ToList()));
 
 //    }
@@ -86,26 +89,27 @@
 //    [Test]
 //    public void T09MissedOn19thFrame()
 //    {
-//        int[] rolls = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10,0 };
+//        int[] rolls = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10, 0 };
 //        Assert.AreEqual(tidy, ActionMaster.NextAction(rolls.ToList()));
 //    }
 
 //    [Test]
 //    public void T10MissedFirstFrameAndStrike()
 //    {
-//        int[] rolls = { 0, 10, 5 ,1};
+//        int[] rolls = { 0, 10, 5, 1 };
 //        Assert.AreEqual(endTurn, ActionMaster.NextAction(rolls.ToList()));
 //    }
 
 //    [Test]
 //    public void T11TripleStrikeOnLastFrames()
 //    {
-//        int[] rolls = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,10,10,10};
+//        int[] rolls = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10, 10, 10 };
 //        Assert.AreEqual(endGame, ActionMaster.NextAction(rolls.ToList()));
 //    }
 
 //    [Test]
-//    public void T13ZeroGivesEndTurn() {
+//    public void T13ZeroGivesEndTurn()
+//    {
 //        int[] rolls = { 0, 1 };
 //        Assert.AreEqual(endTurn, ActionMaster.NextAction(rolls.ToList()));
 //    }
