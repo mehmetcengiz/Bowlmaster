@@ -18,7 +18,7 @@ public class ScoreMaster {
         return cumulativeScores;
     }
 
-    //Return a list of individual frame scores, NOT cumulative.
+    //Return a list of individual frame scores.
     public static List<int> ScoreFrames(List<int> rolls) {
         List<int> frames = new List<int>();
 
@@ -29,7 +29,7 @@ public class ScoreMaster {
                 frames.Add(rolls[i - 1] + rolls[i]);    //Normal frame
             }
 
-            if(rolls.Count -i <= 1) { break;}           //Insufficient look-ahead
+            if(rolls.Count -i <= 1) { break;}           //Ensure at least 1 available.
 
             if (rolls[i-1] == 10) {                     //Strike
                 i--;                                    //Strike frame has just one bowl.
