@@ -1,28 +1,30 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
+namespace Assets.Scripts {
+	public class GameManager : MonoBehaviour {
 
-    private List<int> bowls = new List<int>();
+		private readonly List<int> _bowls = new List<int>();
+		private PinSetter _pinSetter;
+		private Ball _ball;
+		private ScoreDisplay _scoreDisplay;
 
-    private PinSetter pinSetter;
-    private Ball ball;
+		// Use this for initialization
+		void Start() {
+			_pinSetter = GameObject.FindObjectOfType<PinSetter>();
+			_ball = GameObject.FindObjectOfType<Ball>();
+			_scoreDisplay = GameObject.FindObjectOfType<ScoreDisplay>();
+		}
 
-    // Use this for initialization
-    void Start()
-    {
-        pinSetter = GameObject.FindObjectOfType<PinSetter>();
-        ball = GameObject.FindObjectOfType<Ball>();
-    }
+		public void Bowl(int pinFall) {
+			_bowls.Add(pinFall);
+			_ball.Reset();
+			
+			_pinSetter.PerformAction(ActionMaster.NextAction(_bowls));
 
-    public void Bowl(int pinFall)
-    {
-        bowls.Add(pinFall);
+			_scoreDisplay.FillRollCard(_bowls);
 
-        ActionMaster.Action nextAction = ActionMaster.NextAction(bowls);
-        pinSetter.PerformAction(nextAction);
-        ball.Reset();
-    }
+
+		}
+	}
 }

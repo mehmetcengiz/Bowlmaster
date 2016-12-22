@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using System.Linq;
+using Assets.Scripts;
 
 [TestFixture]
 public class ScoreMasterTest {
