@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts {
@@ -17,12 +18,21 @@ namespace Assets.Scripts {
 		}
 
 		public void Bowl(int pinFall) {
-			_bowls.Add(pinFall);
-			_ball.Reset();
-			
-			_pinSetter.PerformAction(ActionMaster.NextAction(_bowls));
+			try {
+				_bowls.Add(pinFall);
+				_ball.Reset();
+				_pinSetter.PerformAction(ActionMaster.NextAction(_bowls));
+			}
+			catch {
+				Debug.LogWarning("Something went wrong in Bowl");
+			}
 
-			_scoreDisplay.FillRollCard(_bowls);
+			try {
+				_scoreDisplay.FillRollCard(_bowls);
+			}
+			catch {
+				Debug.Log("FillRollCard failed.");
+			}
 
 
 		}
