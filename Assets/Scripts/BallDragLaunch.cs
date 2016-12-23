@@ -53,7 +53,7 @@ namespace Assets.Scripts {
 				float launchSpeedX = (_dragEnd.x - _dragStart.x)/dragDuration;
 				float launchSpeedZ = (_dragEnd.y - _dragStart.y)/dragDuration;
 
-				Vector3 launchVelocity = new Vector3(launchSpeedX, 0, launchSpeedZ);
+				var launchVelocity = new Vector3(launchSpeedX, 0, launchSpeedZ);
 
 				_ball.Launch(launchVelocity);
 			}

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Assets.Scripts {
 	public class GameManager : MonoBehaviour {
 
-		private readonly List<int> _bowls = new List<int>();
+		private readonly List<int> _rolls = new List<int>();
 		private PinSetter _pinSetter;
 		private Ball _ball;
 		private ScoreDisplay _scoreDisplay;
@@ -19,19 +19,20 @@ namespace Assets.Scripts {
 
 		public void Bowl(int pinFall) {
 			try {
-				_bowls.Add(pinFall);
+				_rolls.Add(pinFall);
 				_ball.Reset();
-				_pinSetter.PerformAction(ActionMaster.NextAction(_bowls));
+				_pinSetter.PerformAction(ActionMaster.NextAction(_rolls));
 			}
 			catch {
 				Debug.LogWarning("Something went wrong in Bowl");
 			}
 
 			try {
-				_scoreDisplay.FillRollCard(_bowls);
+				_scoreDisplay.FillRolls(_rolls);
+				_scoreDisplay.FillFrames(ScoreMaster.ScoreCumulative(_rolls));
 			}
 			catch {
-				Debug.Log("FillRollCard failed.");
+				Debug.Log("FillRolls failed.");
 			}
 
 
