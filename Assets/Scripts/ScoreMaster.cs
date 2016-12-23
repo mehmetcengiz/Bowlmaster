@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 namespace Assets.Scripts {
-	public class ScoreMaster {
+	public static class ScoreMaster {
 
 		//Return a list of cumulative scores, like a normal score card.
 		public static List<int> ScoreCumulative(List<int> rolls) {

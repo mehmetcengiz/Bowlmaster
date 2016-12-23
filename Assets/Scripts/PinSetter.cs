@@ -6,7 +6,6 @@ namespace Assets.Scripts {
 
 		public GameObject pinSet;
 
-		private ActionMaster _actionMaster = new ActionMaster();
 		private Animator _animator;
 		private PinCounter _pinCounter;
 
